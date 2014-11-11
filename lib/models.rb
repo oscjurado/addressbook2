@@ -1,8 +1,3 @@
-require 'active_record'
-
-ActiveRecord::Base.establish_connection({
-  adapter:  "sqlite3",
-  database: "./addressbook.db"
-})
-
-puts "Connected!"
+require_relative 'models/addressentry'
+require_relative 'models/phonenumber'
+require_relative 'models/email'
