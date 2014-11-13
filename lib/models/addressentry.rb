@@ -6,7 +6,7 @@ class Addressentry < ActiveRecord::Base
 	validates :lastname,
 						presence: true
 
-	has_many :email
+	has_many :emails
 	has_many :phonenumbers
 
 end
