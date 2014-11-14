@@ -5,6 +5,7 @@ class Phonenumber < ActiveRecord::Base
 						presence: true
 
 	validates :digits,
-						presence: true
+						 presence: true
+						 
 	belongs_to :addressentry
 end

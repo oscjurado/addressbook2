@@ -6,5 +6,5 @@ class Email < ActiveRecord::Base
 	validates :address,
 						presence: true
 
-	belongs_to :author
+	belongs_to :addressentrys
 end
