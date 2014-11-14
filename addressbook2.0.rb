@@ -27,9 +27,7 @@ quit = "3"
 selection = menu
 until selection == quit do 
 	if selection == create
-		entry = create()
-		entry_collection.push entry
-		entry_collection.sort_by! { |n| n.last_name.downcase }	
+		entry = Addressentry.create()
 	else selection == view
 		search()
 	end
