@@ -1,9 +1,7 @@
 DROP TABLE IF EXISTS addressentries;
 DROP TABLE IF EXISTS phonenumbers;
 DROP TABLE IF EXISTS emails;
-DROP TABLE IF EXISTS addressentry;
-DROP TABLE IF EXISTS phonenumber;
-DROP TABLE IF EXISTS email;
+
 
 CREATE TABLE addressentries (
   id INTEGER PRIMARY KEY,
