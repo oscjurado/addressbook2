@@ -23,15 +23,27 @@ def create_entry
 
  		#phone number entry
  	puts "Would you like to give this entry a phone number? Enter Y or N \n"
- 	phone_response = gets.chomp
+ 	phone_response = gets.chomp.upcase
  	
 		#loops until user inputs N
  	until phone_response == "N" do
  		p = create_phone()
  		entry.phonenumbers.push p
- 		puts "Would you like to add another entry?"
+ 		puts "Would you like to add another number?"
  		phone_response = gets.chomp.upcase
  	end
+
+ 		#email entry
+ 	email_response = gets.chomp
+
+ 	until email_response == "N" do 
+ 		e = create_email()
+ 		entry.emails.push e
+ 		puts "Would you like to add another email?"
+ 		email_response = gets.chomp.upcase
+ 	end
+ 	entry.save!
+ 	puts "entry saved!"
 end
 
 	#method to create phone number object
