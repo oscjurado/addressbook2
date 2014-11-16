@@ -19,7 +19,7 @@ def create_entry
   puts "Please enter last name: "
  	lname = gets.chomp.to_s 
 
- 	entry = Addressentry.new({first_name: fname, last_name: lname})
+ 	entry = Addressentry.create({first_name: fname, last_name: lname})
 
  		#phone number entry
  	puts "Would you like to give this entry a phone number? Enter Y or N \n"
@@ -34,7 +34,8 @@ def create_entry
  	end
 
  		#email entry
- 	email_response = gets.chomp
+ 	puts "Would you like to add an email? Enter Y or N\n"
+ 	email_response = gets.chomp.upcase
 
  	until email_response == "N" do 
  		e = create_email()
@@ -42,6 +43,7 @@ def create_entry
  		puts "Would you like to add another email?"
  		email_response = gets.chomp.upcase
  	end
+
  	entry.save!
  	puts "entry saved!"
 end
@@ -53,7 +55,7 @@ def create_phone
   puts "Please enter phone number: "
   	dig = gets.chomp
 
-  phone = Phonenumber.new({category: cat, digits: dig})
+  phone = Phonenumber.create({category: cat, digits: dig})
 end
 
 	#method to create email object
@@ -62,18 +64,25 @@ def create_email
   	cat = gets.chomp
   puts "Please enter email: "
   	ad = gets.chomp
-  email = Email.new({category: cat, address: ad})
+  email = Email.create({category: cat, address: ad})
 end
 
 	#search method using last name
 def search
 	puts "Search for last name: \n"
 	search_name = gets.chomp
-	puts 
-	@result = Addressentry.where(
+	puts @result = Addressentry.where(
 			last_name: search_name
 		)
-	puts result
+	puts @result.each do |r|
+		puts "First Name: #{r.first_name} "
+		puts "Last Name: #{r.last_name}"
+		@emails = r.emails
+		puts "Emails.."
+		@emails.each do |e|
+			puts e.address + " " + e.category
+		end
+	end
 end
 
 create = "1"
