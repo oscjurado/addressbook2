@@ -78,13 +78,17 @@ def search
 		puts "Found #{result.size} matches"
 	else puts "Found #{result.size} match"
 	end
+
+	#loops through results
 	result.each do |r|
 		puts "First Name: #{r.first_name}"
 		puts "Last Name: #{r.last_name}"
-		email = r.emails
+
+		#loops through emails
 		puts "Emails.."
-		email.each do |e|
-			puts "#{e.address} + #{e.category}"
+		r.emails.each do |e|
+			puts "address: #{e.address} \n
+						category: #{e.category}"
 		end
 	end
 end
@@ -100,6 +104,5 @@ until selection == quit do
 	elsif selection == search
 		search()
 	end
-
 	selection = menu
 end

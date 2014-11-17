@@ -12,11 +12,13 @@ CREATE TABLE addressentries (
 CREATE TABLE phonenumbers (
 	id INTEGER PRIMARY KEY,
 	category VARCHAR(255),
-	digits VARCHAR(255)
+	digits VARCHAR(255),
+	addressentry_id INTEGER
 );
 
 CREATE TABLE emails (
 	id INTEGER PRIMARY KEY,
 	category VARCHAR(255),
-	address VARCHAR(255)
+	address VARCHAR(255),
+	addressentry_id INTEGER
 );
