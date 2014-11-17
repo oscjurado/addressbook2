@@ -81,9 +81,9 @@ def search
 	result.each do |r|
 		puts "First Name: #{r.first_name}"
 		puts "Last Name: #{r.last_name}"
-		@email = r.emails
+		email = r.emails
 		puts "Emails.."
-		@email.each do |e|
+		email.each do |e|
 			puts "#{e.address} + #{e.category}"
 		end
 	end
