@@ -71,16 +71,17 @@ end
 def search
 	puts "Search for last name: \n"
 	search_name = gets.chomp
-	puts @result = Addressentry.where(
+	result = Addressentry.where(
 			last_name: search_name
 		)
-	puts @result.each do |r|
-		puts "First Name: #{r.first_name} "
+	puts "Found #{result.size} matches"
+	result.each do |r|
+		puts "First Name: #{r.first_name}"
 		puts "Last Name: #{r.last_name}"
-		@emails = r.emails
+		email = r.emails
 		puts "Emails.."
-		@emails.each do |e|
-			puts e.address + " " + e.category
+		email.each do |e|
+			puts "#{e.address}  #{e.category}"
 		end
 	end
 end
