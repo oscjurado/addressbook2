@@ -74,14 +74,17 @@ def search
 	result = Addressentry.where(
 			last_name: search_name
 		)
-	puts "Found #{result.size} matches"
+	unless result.size == 1
+		puts "Found #{result.size} matches"
+	else puts "Found #{result.size} match"
+	end
 	result.each do |r|
 		puts "First Name: #{r.first_name}"
 		puts "Last Name: #{r.last_name}"
-		email = r.emails
+		@email = r.emails
 		puts "Emails.."
-		email.each do |e|
-			puts "#{e.address}  #{e.category}"
+		@email.each do |e|
+			puts "#{e.address} + #{e.category}"
 		end
 	end
 end
