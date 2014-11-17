@@ -93,7 +93,7 @@ def search
 		#loops through numbers
 		r.phonenumbers.each do |p|
 			puts "  category: #{p.category} \n  digits: #{p.digits} \n"
-		end
+		end	
 	end
 end
 
@@ -107,6 +107,8 @@ until selection == quit do
 		entry = create_entry()
 	elsif selection == search
 		search()
+	else puts "\nOops. Incorrect input\n"
 	end
 	selection = menu
 end
+puts " Goodbye! \n #{Addressentry.count} entries saved in database."
