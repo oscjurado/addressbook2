@@ -69,7 +69,7 @@ end
 
 	#search method using last name
 def search
-	puts "Search for last name: \n"
+	puts "Search by last name: \n"
 	search_name = gets.chomp
 	result = Addressentry.where(
 			last_name: search_name
@@ -102,7 +102,6 @@ def search
 		if result.count > 1
 			result.destroy_all
 			puts "\n.....Entries destroyed...\n"
-		end
 	end
 end
 
