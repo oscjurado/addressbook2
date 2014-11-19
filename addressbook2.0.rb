@@ -85,11 +85,12 @@ def search
 		puts "Last Name: #{r.last_name}"
 
 		#loops through emails
-		puts "Emails.."
+		puts "Emails..\n"
 		r.emails.each do |e|
 			puts "  category: #{e.category} \n  address: #{e.address} \n"
 		end
 
+		puts "Phone numbers..\n"
 		#loops through numbers
 		r.phonenumbers.each do |p|
 			puts "  category: #{p.category} \n  digits: #{p.digits} \n"
