@@ -75,26 +75,34 @@ def search
 			last_name: search_name
 		)
 	unless result.size == 1
-		puts "Found #{result.size} matches"
+		puts "\nFound #{result.size} matches"
 	else puts "Found #{result.size} match"
 	end
 
 	#loops through results
 	result.each do |r|
-		puts "First Name: #{r.first_name}"
-		puts "Last Name: #{r.last_name}"
+		puts "\nFirst Name: #{r.first_name}\n"
+		puts "\nLast Name: #{r.last_name}\n"
 
 		#loops through emails
-		puts "Emails..\n"
+		puts "\nEmails..\n"
 		r.emails.each do |e|
 			puts "  category: #{e.category} \n  address: #{e.address} \n"
 		end
 
-		puts "Phone numbers..\n"
+		puts "\nPhone numbers..\n"
 		#loops through numbers
 		r.phonenumbers.each do |p|
 			puts "  category: #{p.category} \n  digits: #{p.digits} \n"
 		end	
+	end
+	puts "Destroy Entries? Enter Y or N\n"
+	choice = gets.chomp.downcase
+	if choice == "y"
+		if result.count > 1
+			result.destroy_all
+			puts "\n.....Entries destroyed...\n"
+		end
 	end
 end
 
